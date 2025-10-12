@@ -1,0 +1,73 @@
+---
+sidebar_position: 6
+---
+
+# Regiones vivas
+Constituyen zonas de una página web con contenido dinámico, que será anunciado a tecnología asistiva.
+
+Se pueden definir mediante el atributo <code>aria-live</code> ó por los [roles correspondientes a las regiones vivas](../roles/live-region.md).
+
+## Tipos de anuncios
+El contenido anunciado puede ser de dos tipos:
+- *Assertive*: interrumpen a la tecnología asistiva para anunciar el nuevo contenido. Se designa gracias a <code>aria-live="assertive"</code>.
+- *Polite*: no interrumpen. El nuevo contenido se anuncia después de la secuencia actual. Se designa gracias a <code>aria-live="polite"</code>.
+
+### Ejemplos de anuncios
+
+## Modificadores
+- <code>aria-atomic</code>: anuncia qué se debe de anunciar sobre un cambio en el contenido se debe anunciar. 
+    - <code>aria-atomic="true"</code>, se anunciará todo el contenido de la región por cada cambio. 
+    - <code>aria-atomic="false"</code>, se anunciará sólo el cambio en el contenido.
+- <code>aria-relevant</code>: anuncia cuáles son los tipos de cambio que provocarán un anuncio.
+    - <code>aria-relevant="text"</code>: sólo los cambios del contenido textual son relevantes.
+    - <code>aria-relevant="additions"</code>: sólo nuevas inserciones de nodos en la área viva son relevantes.
+    - <code>aria-relevant="removals"</code>: sólo la eliminación de nodos en el área viva son relevantes.
+    - <code>aria-relevant="all"</code>: todos los cambios son relevantes.
+- <code>aria-busy</code>: se utiliza para suprimir los anuncios de una región viva temporalmente. Imagina que hay muchos
+cambios en una región viva de forma simultánea, anunciarlos todos puede ser abrumador para el usuario. Podemos esperar a anunciar todos
+a la vez si usamos <code>aria-busy</code>.
+
+### Ejemplo: Barra de notificaciones
+import { PushNotifications } from './examples/PushNotifications.jsx'
+
+<PushNotifications />
+
+## Tipos de regiones vivas
+- <code>alert</code>: es equivalente a <code>aria-live="assertive"</code>. Algunos lectores de pantalla anuncian la palabra "alerta" junto con el cambio.
+- <code>status</code>: es equivalente a <code>aria-live="polite"</code>. Se usa cuando el cambio tiene menos prioridad (es menos urgente en el flujo del usuario).
+- <code>timer</code>: designa un contador de tiempo. Tiene <code>aria-live="off"</code> porque anunciar estos cambios tan frecuentemente podría ser muy molesto.
+- <code>marquee</code>: designa una región desplazable con anuncios no esenciales. Tiene <code>aria-live="off"</code>.
+- <code>log</code>: designa una zona con eventos secuenciales. Tiene <code>aria-live="off"</code>.
+
+### Ejemplo: Resultados de un partido de baloncesto
+import { BasketResults } from './examples/BasketResults.jsx'
+
+<BasketResults />
+
+## Extra: mensajes exclusivos para el lector de pantalla
+Podemos hacer uso de las regiones vivas y la clase de *CSS* *"visually-hidden"* para 
+anunciar de forma exclusiva mensajes al lector de pantalla.
+
+
+```CSS
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+```
+```html
+<div id="sr_alert" role="alert" class="visually-hidden"></div>
+```
+```js
+document.getElementById("sr_alert").textContent =
+  "¡Hola lector de pantalla!";
+```
+
+import { DynamicContent } from './examples/DynamicContent.jsx'
+
+<DynamicContent />

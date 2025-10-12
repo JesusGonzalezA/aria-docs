@@ -1,0 +1,8 @@
+{
+  "label": "Atributos",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Los atributos de aria permiten aportar a la tecnología asistiva información sobre el estado o propiedades de un componente."
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "label": "Técnicas",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Trabajo en proceso. Algunos casos de uso en los que podemos aplicar ARIA."
+  }
+}

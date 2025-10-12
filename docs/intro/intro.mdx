@@ -1,0 +1,50 @@
+---
+sidebar_position: 1
+---
+import { AriaProgressBar } from './AriaProgressBar.jsx'
+import { ProgressBar} from './ProgressBar.jsx'
+
+# Introducción a ARIA
+
+*ARIA* son las siglas de "Accessible Rich Internet Applications" ó "Aplicaciones de Internet Enriquecidas Accesibles". Se trata de una colección de atributos que complementan a HTML y permiten crear aplicaciones web accesibles.
+
+Por ejemplo, podemos utilizar *ARIA* para indicar que un elemento de un formulario es inválido.
+
+:::danger[Aviso] 
+Se **debe** priorizar el uso de HTML5 sobre *ARIA*. Cuando uses *ARIA*, debes estar seguro que estás siguiendo correctamente la técnica. Piensa que hay un contrato con la tencología asistiva, sino lo cumples, tus aplicaciones no podrán ser correctamente interpretadas.
+:::
+## Ejemplo
+Supongamos que queremos crear una barra de progreso en HTML.
+
+Para que sea accesible, debemos de tener en cuenta que la tecnología asistiva debe de ser capaz de:
+- Anunciar que el elemento es una barra de progreso (**semántica**).
+- Anunciar qué es lo que está progresando (**nombre**).
+- Anunciar numéricamente el progreso (**estado**).
+
+### Ejemplo con *ARIA*
+```html title="Barra de progreso con ARIA"
+<span id="file_progress_label">Progreso de la subida del archivo</span>
+
+<div
+  role="progressbar"
+  aria-labelledby="file_progress_label"
+  aria-valuemin="0"
+  aria-valuemax="100"
+  aria-valuenow="50"
+></div>
+```
+
+<AriaProgressBar />
+
+En el ejemplo anterior, podemos identificar el uso de varios atributos que pertenecen a *ARIA*:
+- ```role="progressbar"```: nos indica la **semántica** del elemento.
+- ```aria-labelledby="<identificador del elemento que contiene el nombre>"```: nos indica el **nombre** del elemento.
+- ```aria-valuemin```, ```aria-valuemax```, ```aria-valuenow```: nos indican el **estado** del elemento. Concretamente, el valor mínimo, máximo y actual del progreso. 
+
+### Ejemplo con HTML5 semántico
+```html title="Barra de progreso con HTML5"
+<label for="file_progress">Progreso de la subida del archivo</label>
+<progress id="file_progress" min="0" max="100" value="50">
+```
+
+<ProgressBar />
