@@ -13,22 +13,22 @@ Una vez el **DOM** se crea, los navegadores crean el *árbol de accesibilidad*. 
 
 ## Propiedades del árbol de accesibilidad
 - rol: indica qué tipo de elemento es un nodo: botón, link, tabla, etc.
-    <div style={{ background: "white", padding: "3rem", border: "solid white 1px", borderRadius: "0.5rem"}}>
+    <div style={{ background: "white", padding: "3rem", border: "solid white 1px", borderRadius: "0.5rem", border: "solid 1px black"}}>
         <button>Mover a la papelera</button>
     </div>
 - nombre: nos solemos referir a esta propiedad como nombre accesible. Por ejemplo, un botón con el texto "Mover a la papelera" tendrá
 el nombre "Mover a la papelera".
-    <div style={{ background: "white", padding: "3rem", border: "solid white 1px", borderRadius: "0.5rem"}}>
+    <div style={{ background: "white", padding: "3rem", border: "solid white 1px", borderRadius: "0.5rem", border: "solid 1px black"}}>
         <button>Mover a la papelera</button>
     </div>
 - descripción: es información extra al nombre. En el siguiente ejemplo, el párrafo que acompaña al botón es usado como su descripción gracias a 
 ARIA.
-    <div style={{ background: "white", padding: "3rem", border: "solid white 1px", borderRadius: "0.5rem"}}>
+    <div style={{ background: "white", padding: "3rem", border: "solid white 1px", borderRadius: "0.5rem", border: "solid 1px black"}}>
         <button aria-describedby="papelera__descripcion">Mover a la papelera</button>
         <p id="papelera__descripcion" style={{ color: 'black'}}>Los elementos se eliminarán de la papelera a los 30 días.</p>
     </div>
 - estado: si tiene atributos adicionales. Algunos ejemplos son: colapsado, presionado, abre un popup, seleccionado, etc.
-    <div style={{ background: "white", padding: "3rem", border: "solid white 1px", borderRadius: "0.5rem"}}>
+    <div style={{ background: "white", padding: "3rem", border: "solid white 1px", borderRadius: "0.5rem", border: "solid 1px black"}}>
         <button aria-describedby="papelera__descripcion" disabled>Mover a la papelera</button>
         <p id="papelera__descripcion" style={{ color: 'black'}}>Los elementos se eliminarán de la papelera a los 30 días.</p>
     </div>

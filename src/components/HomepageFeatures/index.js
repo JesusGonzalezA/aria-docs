@@ -4,32 +4,32 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
+    title: 'Enfoque práctico',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        El curso ha sido diseñado con un enfoque práctico. En cada lección aprenderas casos de uso
+        para que puedas aplicar ARIA sin miedo en tus proyectos.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Buenas prácticas',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        ARIA te dará un superpoder. En este curso aprenderás a usarlo correctamente, gracias a 
+        las técnicas y recursos adicionales proporcionados.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'A tu ritmo, guiado',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Pregunta en cualquier lección si tienes dudas. Estaré encantado de resolverlas y tener debates 
+        con la comunidad.
       </>
     ),
   },

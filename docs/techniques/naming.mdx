@@ -1,0 +1,93 @@
+---
+sidebar_position: 2
+---
+
+# Nombre accesible
+
+El nombre accesible de un elemento es el resultado de un cálculo bastante complejo que intentaremos simplificar. Puedes encontrar toda la información acerca del mismo en [la documentación de w3, accname/computation-steps](https://w3c.github.io/accname/#computation-steps).
+
+## Algoritmo simplificado
+
+El nombre accesible de un elemento será el primero que haya definido, según este orden:
+
+1. **aria-labelledby**
+2. **aria-label**
+3. **HTML label, alt ó contenido dentro de la marca**
+4. **title**: no es recomendable usar *title* como método para nombrar un elemento. Se usa para indicar información extra, no esencial, ya que no es accesible para todos los usuarios.
+
+### Ejemplos
+
+#### Ejemplo nombre: mecanismos HTML
+```jsx
+<label>
+    Nombre
+    <input type="text" name="fname" />
+</label>
+
+<button>Guardar</button>
+```
+<div style={{ background: "white", color: "black", padding: "3rem", border: "solid white 1px", borderRadius: "0.5rem",  border: "solid 1px black"}}>
+    <label>Nombre <input name="fname" type="text" style={{ padding: "0.5rem"}} /></label>
+
+    <button style={{ display: 'block', padding: "0.5rem", marginTop: "1rem" }}>Guardar</button>
+</div>
+
+#### Ejemplo nombre: Aria-label
+```jsx
+<input type="search" id="search" aria-label="Buscar en el sitio" />
+```
+
+<div style={{ background: "white", color: "black", padding: "3rem", border: "solid white 1px", borderRadius: "0.5rem", border: "solid 1px black"}}>
+    <input type="search" id="search" style={{ padding: "0.5rem"}} aria-label="Buscar en el sitio" />
+    <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        width="20"
+        height="20"
+        style={{ verticalAlign: "middle", transform: "translateX(-120%)" }}
+   >
+    <path d="M15.5 14h-.79l-.28-.27a6.471 6.471 0 001.48-5.34C15.11 5.59 12.52 3 9.25 3S3.39 5.59 3.39 8.89 5.98 14.78 9.25 14.78a6.47 6.47 0 004.09-1.47l.27.28v.79l4.25 4.25 1.49-1.49L15.5 14zM9.25 13c-2.24 0-4.06-1.82-4.06-4.06S7.01 4.88 9.25 4.88s4.06 1.82 4.06 4.06S11.49 13 9.25 13z" />
+  </svg>
+</div>
+
+### Ejemplo nombre: aria-label
+```jsx
+<label for="phone__prefix">Teléfono fijo</label>
+
+<input id="phone__prefix" aria-label="Prefijo del teléfono" size={3} maxLength={3} type="text" style={{ padding: "0.5rem" }} />
+ - 
+<input id="phone__rest" aria-label="Número de teléfono sin prefijo" size={6} maxLength={6} type="text" style={{ padding: "0.5rem" }} />
+```
+
+<div style={{ background: "white", color: "black", padding: "3rem", border: "solid white 1px", borderRadius: "0.5rem", border: "solid 1px black"}}>
+    <label for="phone">Teléfono fijo</label>
+
+    <input id="phone" aria-label="Prefijo del teléfono" size={3} maxLength={3} type="text" style={{ padding: "0.5rem" }} /> - <input id="phone2" aria-label="Número de teléfono sin prefijo" size={6} maxLength={6} type="text" style={{ padding: "0.5rem" }} />
+</div>
+
+### Ejemplo nombre: aria-labelledby
+```jsx
+<button
+    onClick={openDialog}
+    aria-haspopup="dialog"
+    aria-controls="example_dialog"
+    >
+    Enviar formulario
+</button>
+
+<dialog
+    ref={dialogRef}
+    id="example_dialog"
+    aria-modal="true"
+    aria-labelledby="dialog_title"
+>
+    <h2 id="dialog_title" style={{ marginTop: 0 }}>
+    Envío de formulario
+    </h2>
+    ...
+</dialog>
+```
+
+import { Dialog } from './examples/Dialog.jsx'
+
+<Dialog />

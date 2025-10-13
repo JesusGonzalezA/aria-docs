@@ -11,7 +11,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Introducción a ARIA',
-  tagline: 'Dinosaurs are cool',
+  tagline: 'Curso de introducción a ARIA, por Jesús González para weAAAre.',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -68,9 +68,9 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'My Site',
+        title: 'Introducción a ARIA',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Introducción a ARIA',
           src: 'img/logo.svg',
         },
         items: [
@@ -78,10 +78,10 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Curso',
           },
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/JesusGonzalezA/aria-docs',
             label: 'GitHub',
             position: 'right',
           },
@@ -91,37 +91,29 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Principal',
             items: [
               {
-                label: 'Tutorial',
+                label: 'Curso',
                 to: '/docs/intro',
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'Conecta con Jesús González',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'X',
-                href: 'https://x.com/docusaurus',
+                label: 'LinkedIN',
+                href: 'https://www.linkedin.com/in/jesusgonzalezalvarez/',
               },
             ],
           },
           {
-            title: 'More',
+            title: 'Más',
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/JesusGonzalezA/aria-docs',
               },
             ],
           },
