@@ -1,0 +1,38 @@
+---
+sidebar_position: 1
+---
+
+# Tooltip
+
+El tooltip es un componente que podemos utilizar para proporcionar información extra sobre otro.
+Se parece mucho al atributo <code>title</code> de *HTML*, ya que lo usamos para proporcionar una descripción. Sin embargo:
+- El tooltip aparece cuando el usuario hace *hover* en el elemento.
+- El tooltip aparece cuando el usuario hace *focus* en el elemento.
+- El tooltip desaparece en caso contrario.
+- El tooltip desaparece cuando el usuario pulsa la tecla *Escape* en el elemento.
+
+:::warning
+Desde diseño, debíeramos de estudiar por qué no podemos mostrar siempre esta información.
+:::
+
+## Consideraciones de ARIA
+- El elemento referencia al tooltip mediante <code>aria-describedby</code>.
+- El tooltip tiene <code>role="tooltip"</code>.
+
+## Ejemplo
+```jsx
+<span role="tooltip" id="pwd__tooltip">
+    La contraseña debe de tener al menos un símbolo
+</span>
+
+<input type="password" aria-describedby="pwd__tooltip" />
+
+```
+
+import { Tooltip } from './components/Tooltip.jsx'
+
+<Tooltip text="La contraseña debe de tener al menos un símbolo.">
+    <label>
+        Contraseña <input type="password" />
+    </label>
+</Tooltip>
