@@ -1,0 +1,38 @@
+---
+sidebar_position: 2
+---
+
+# Toolbar
+
+La toolbar es un componente contenedor para botones, botones de menú o checkboxes. Se utiliza cuando 
+estos se presentan visualmente en grupo. Con este widget, haremos que la navegación con teclado y screen reader
+sea más rápida sobre los mismos.
+Para ello, se utiliza una navegación con flechas sobre los elementos, y con tab para entrar y salir de la toolbar.
+
+## Consideraciones de ARIA
+- La toolbar tiene <code>role="toolbar"</code>.
+- Si tiene un nombre visible, lo referenciamos con <code>aria-labelledby</code>. Sino, usamos <code>aria-label</code> para nombrarlo.
+- La toolbar tiene <code>aria-orientation</code> <code>vertical</code> si se presenta visualmente en vertical.
+
+## Ejemplo
+Uso la [técnica roving index](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Guides/Keyboard-navigable_JavaScript_widgets#technique_1_roving_tabindex)
+ para guardar el foco.
+ 
+```jsx
+<div role="toolbar" aria-orientation="horizontal" aria-label="Archivo">
+    <button tabindex="-1">Guardar</button>
+    <button tabindex="-1">Copiar</button>
+    <button tabindex="-1">Pegar</button>
+    <button tabindex="0">Nuevo</button>
+</div>
+
+```
+
+import { ToolBar } from './components/ToolBar.jsx'
+
+<ToolBar ariaLabel={'Archivo'}>
+    <ToolBar.Item>Guardar</ToolBar.Item>
+    <ToolBar.Item>Copiar</ToolBar.Item>
+    <ToolBar.Item>Pegar</ToolBar.Item>
+    <ToolBar.Item>Nuevo</ToolBar.Item>
+</ToolBar>
