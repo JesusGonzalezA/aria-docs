@@ -12,7 +12,6 @@ export const Tooltip = ({ text, children }) => {
         { 
             React.cloneElement(React.Children.only(children), {
                 "aria-describedby": popoverId,
-                id: targetId,
                 popoverTarget: popoverId,
                 style: { anchorName: `--${targetId}` },
                 onPointerEnter: show,
